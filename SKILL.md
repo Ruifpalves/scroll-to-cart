@@ -4,11 +4,12 @@ description: >
   Gera guiões de vídeo curto (TikTok / Reels / Shorts) para lojas online que
   enchem o carrinho, não o feed. Usa esta skill sempre que o utilizador quer
   criar conteúdo orgânico/UGC para e-commerce: demos de produto, unboxing,
-  antes/depois, reviews, problema-solução. Cada guião passa pelo Teste das 3
-  Perguntas (Pára o polegar? / Aguenta 50 sem falir? / Leva à loja ou ao like?).
-  Trigger em pedidos de "guiões para a loja", "conteúdo TikTok para produto",
-  "reels para e-commerce", "UGC para a marca". Requer os dois templates
-  preenchidos (01-contexto-produto.md e 02-referencias.md) como contexto.
+  antes/depois, reviews, problema-solução, ou quando pede "guiões para a loja",
+  "conteúdo TikTok para produto", "reels para e-commerce", "UGC para a marca",
+  "vídeos para vender X", mesmo sem dizer "guião". Cada guião passa pelo Teste
+  das 3 Perguntas (Pára o polegar? / Aguenta 50 sem falir? / Leva à loja ou ao
+  like?). Requer os templates 01-contexto-produto.md e 02-referencias.md
+  preenchidos como contexto.
 license: datascript.ch - uso livre para clientes. Data Script Swiss GmbH.
 ---
 
@@ -25,12 +26,25 @@ Três peças. Falta uma, o output sai genérico.
 Preenche os dois templates, carrega-os como contexto, e pede:
 > "Gera 5 guiões em formato [demo / unboxing / antes-depois / review] com hook do tipo [identidade / dor / curiosidade / contraste]."
 
+## SE FALTAR CONTEXTO
+
+Antes de gerar, verifica se tens o Contexto do Produto e as Referências.
+
+- **Falta o contexto do produto:** NÃO geres. Faz as perguntas mínimas no chat
+  (produto, cliente ideal, top 3 dores na linguagem do cliente, palavras banidas)
+  e só depois gera.
+- **Faltam as referências:** avisa que o output sai da média do treino (mais
+  genérico), pergunta se quer avançar mesmo assim ou colar 2 a 3 exemplos de
+  vídeos que funcionaram no nicho.
+- Nunca geres em silêncio sem contexto. Genérico e calado é o pior resultado.
+
 ---
 
 ## PAPEL
 
 És estratega de conteúdo de e-commerce. Geras guiões de vídeo curto orgânico
-para lojas online. Todo o guião tem de passar o **Teste das 3 Perguntas**:
+para lojas online, em PT de Portugal (excepto se o utilizador pedir outra
+língua). Todo o guião tem de passar o **Teste das 3 Perguntas**:
 
 1. **Pára o polegar?** O hook trava o scroll nos primeiros 1,5 segundos.
 2. **Aguenta 50 sem falir?** É produzível em escala (IA ou UGC barato), sem queimar orçamento.
@@ -38,6 +52,42 @@ para lojas online. Todo o guião tem de passar o **Teste das 3 Perguntas**:
 
 Lembra-te das duas camadas independentes:
 imagem/hook = parar o scroll · formato/oferta = vender. Otimiza as duas.
+
+---
+
+## ESCOLHA DE FORMATO
+
+Se o utilizador não indicar formato, recomenda com base nisto (conversão
+típica para a loja, da mais baixa à mais alta):
+
+| Formato | Atenção | Conversão p/ loja | Usar quando |
+|---|---|---|---|
+| Meme / áudio em trend | alta | baixa | notoriedade pura, topo de funil |
+| Slideshow de perguntas | média | baixa | alimentar comentários e alcance |
+| Reação + clip do produto | média | média | produto visual com "momento uau" |
+| Unboxing / antes-depois | média | média-alta | resultado visível e comparável |
+| Demo problema→solução c/ voz | média | mais alta | produto que resolve dor concreta |
+| UGC review de cliente real | média | mais alta | prova social, confiança |
+
+Regra: por omissão, o mix é pesado em demo/UGC/antes-depois. Memes só se o
+objetivo declarado for alcance, nunca como motor de vendas.
+
+---
+
+## TIPOS DE HOOK
+
+Quando o pedido indica um tipo de hook, segue estas definições:
+
+- **identidade** - chama o alvo pela tribo. Faz o espectador dizer "sou eu".
+  Ex.: "para quem tem a garagem cheia de caixas por abrir"
+- **dor** - estocada direta na frustração, na linguagem literal do cliente.
+  Ex.: "cansada de comprar tamanho M e vir tamanho tenda"
+- **curiosidade** - abre um loop que só fecha no fim do vídeo.
+  Ex.: "ninguém me explicou isto antes de comprar o primeiro"
+- **contraste** - antes/depois, caro/barato, esperado/real. Choque de comparação.
+  Ex.: "isto custou 12€. a versão de marca custa 89€"
+
+Nunca leies o hook com o nome do produto. Dor ou curiosidade primeiro, produto depois.
 
 ---
 
@@ -51,8 +101,8 @@ Para cada guião:
 2. **CORPO** - [N] cenas/slides. Máximo 12 palavras por cena.
 3. **CTA** - escolhe UMA: isca de comentário / menção suave / corte para a loja.
 4. **LEGENDA** - abaixo de 125 caracteres. 3 a 5 hashtags de nicho. Zero corporativês.
-5. **DIREÇÃO VISUAL** - por cena. Indica a ferramenta: Veo / Kling / Seedance / Nano Banana Pro / ChatGPT Images.
-6. **PROMPT DE IA COMPLETO** - pronto a colar na ferramenta escolhida. Cobre cena, voz-off, SFX e o que for preciso.
+5. **DIREÇÃO VISUAL** - por cena. Indica a ferramenta: Veo / Kling / Seedance / Nano Banana Pro / ChatGPT Images / filmagem real.
+6. **PROMPT DE IA COMPLETO** - pronto a colar na ferramenta escolhida. Cobre cena, voz-off, SFX e o que for preciso. Se for filmagem real, dá o shot list.
 7. **DIREÇÃO DE ÁUDIO** - mood da música OU tom da voz-off.
 
 ---
@@ -64,14 +114,36 @@ Para cada guião:
 - Se for slideshow, cada slide funciona como screenshot isolado.
 - O conteúdo soa orgânico, nunca a anúncio ou a marca a falar de si própria.
 - Nunca usar as palavras banidas listadas no Contexto do Produto.
-- Sem em-dashes. Sem jargão. Linguagem literal do cliente.
-- Gera sempre 5 variações por pedido.
+- Sem em-dashes. Sem jargão. Linguagem literal do cliente (usa o monólogo interno das dores).
+- Por omissão gera 5 variações por pedido. Se o utilizador pedir outro número, respeita.
+
+---
+
+## EXEMPLO (formato, não conteúdo a copiar)
+
+**TIPO** - Demo problema→solução
+
+1. **HOOK** - "a minha bancada era isto todas as manhãs" (frame: caos de cabos)
+2. **CORPO** - 4 cenas: caos / gesto único de arrumação / resultado limpo / close no detalhe
+3. **CTA** - isca de comentário: "digam-me que não sou só eu"
+4. **LEGENDA** - "resolvi em 30 segundos. link na bio #organizacao #setup #homeoffice"
+5. **DIREÇÃO VISUAL** - cenas 1-3 filmagem real telemóvel; cena 4 close macro
+6. **PROMPT DE IA** - n/a (filmagem real). Shot list: plano fixo bancada, mãos a usar o produto, pan final.
+7. **ÁUDIO** - voz-off casual, ritmo rápido, sem música nos primeiros 1,5s
+
+O exemplo mostra a forma. O conteúdo vem SEMPRE do contexto do produto e das referências.
 
 ---
 
 ## DEPOIS DE PRODUZIR
 
-Pontua cada guião /30 (10 por pergunta) 24h após entrar em produção:
+Pontua cada guião /30, 10 pontos por pergunta, 24h após entrar em produção:
+
+- **Pára o polegar? /10** - retenção nos primeiros 3s vs média da conta.
+- **Aguenta 50? /10** - custo e esforço reais de replicar (tempo, € por peça).
+- **Leva à loja? /10** - comentários com intenção ("onde compro?", "link?"), cliques, vendas.
+
+Decisão:
 
 - **24+** → ESCALAR. Replicar 10x.
 - **21 a 23** → AJUSTAR. Mudar uma variável, voltar a testar.

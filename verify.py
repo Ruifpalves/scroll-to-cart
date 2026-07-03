@@ -33,11 +33,15 @@ if m:
         check("description >= 40 chars", len(str(data.get("description",""))) >= 40)
         check("name == nome da pasta", data.get("name") == os.path.basename(ROOT), os.path.basename(ROOT))
     except ImportError:
-        # parser minimo sem pyyaml
-        keys = dict(re.findall(r"^(\w+):", fm, re.MULTILINE) and
-                    [(k, True) for k in re.findall(r"^(\w+):", fm, re.MULTILINE)])
+        # parser minimo sem pyyaml: so verifica presenca das chaves
+        keys = set(re.findall(r"^(\w+):", fm, re.MULTILINE))
         check("campo name presente", "name" in keys)
         check("campo description presente", "description" in keys)
+
+# 2b. Seccoes obrigatorias do SKILL.md (o motor nao funciona sem elas)
+for sec in ["SE FALTAR CONTEXTO", "TIPOS DE HOOK", "ESCOLHA DE FORMATO",
+            "ESTRUTURA DO OUTPUT", "REGRAS", "DEPOIS DE PRODUZIR"]:
+    check(f"seccao '{sec}' presente", sec in skill)
 
 # 3. Links internos relativos resolvem
 md_files = []
